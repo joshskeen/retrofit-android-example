@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 20
+    buildToolsVersion "19.1.0"
+
+    defaultConfig {
+        applicationId "com.joshskeen.myflickrfetchr"
+        minSdkVersion 10
+        targetSdkVersion 20
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        // this sets the root test folder to src/test overriding the default src/instrumentTest
+        instrumentTest.setRoot('src/test')
+    }
+}
+
+apply plugin: 'android-unit-test'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:19.+'
+    compile 'com.jakewharton:butterknife:5.1.1'
+    compile 'com.squareup.dagger:dagger:1.2.1'
+    compile 'com.squareup.retrofit:retrofit:1.6.1'
+    compile 'de.greenrobot:eventbus:2.2.1'
+    compile 'com.squareup.okhttp:okhttp:+'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:+'
+    compile 'com.google.code.gson:gson:1.7.2'
+    provided 'com.squareup.dagger:dagger-compiler:1.2.1'
+    androidTestCompile 'org.easytesting:fest:1.0.16'
+    testCompile 'junit:junit:4.+'
+    testCompile 'org.robolectric:robolectric:2.3'
+    testCompile 'com.squareup:fest-android:1.0.8'
+
+}
