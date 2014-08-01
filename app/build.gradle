@@ -18,28 +18,12 @@ android {
         }
     }
     sourceSets {
-        unitTest {
-            java.srcDir file('src/test/java')
-            resources.srcDir file('src/test/res')
-        }
         // this sets the root test folder to src/test overriding the default src/instrumentTest
         instrumentTest.setRoot('src/test')
     }
 }
 
 apply plugin: 'android-unit-test'
-
-task unitTest(type:Test, dependsOn: assemble) {
-    testClassesDir = project.unitTest.instrumentTest.output.classesDir
-    classpath = project.unitTest.instrumentTest.runtimeClasspath
-}
-
-configurations {
-    testCompile.extendsFrom runtime
-    unitTestRuntime.extendsFrom testCompile
-}
-
-check.dependsOn unitTest
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
