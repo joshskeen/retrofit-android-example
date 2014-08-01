@@ -1,22 +1,22 @@
 package com.joshskeen.myflickrfetchr.event;
 
-import com.joshskeen.myflickrfetchr.model.response.PhotosResponse;
+import com.joshskeen.myflickrfetchr.model.response.GetRecentPhotosResponse;
 
 /**
  * Created by joshskeen on 7/31/14.
  */
 public class PhotosDownloadedEvent {
-    private PhotosResponse mPhotosResponse;
+    private GetRecentPhotosResponse mPhotosResponse;
 
-    public PhotosDownloadedEvent(PhotosResponse photosResponse) {
+    public PhotosDownloadedEvent(GetRecentPhotosResponse photosResponse) {
         mPhotosResponse = photosResponse;
     }
 
-    public PhotosResponse getPhotosResponse() {
+    public GetRecentPhotosResponse getPhotosResponse() {
         return mPhotosResponse;
     }
 
-    public void setPhotosResponse(PhotosResponse photosResponse) {
+    public void setPhotosResponse(GetRecentPhotosResponse photosResponse) {
         mPhotosResponse = photosResponse;
     }
 }

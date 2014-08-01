@@ -1,7 +1,7 @@
 package com.joshskeen.myflickrfetchr;
 
 
-import com.joshskeen.myflickrfetchr.model.response.PhotosResponse;
+import com.joshskeen.myflickrfetchr.model.response.GetRecentPhotosResponse;
 import com.joshskeen.myflickrfetchr.model.service.FlickrFetchrService;
 
 import org.junit.Before;
@@ -25,8 +25,8 @@ public class TestRestClient {
 
     @Test
     public void testGetRecentPhotosRequest() {
-        PhotosResponse recentPhotos = mFlickrFetchrService.getRecentPhotos(10, 1);
-        assertThat(recentPhotos.mPhotoResponse.mPhotos).hasSize(10);
+        GetRecentPhotosResponse recentPhotos = mFlickrFetchrService.getRecentPhotos(10, 1);
+        assertThat(recentPhotos.mPhotos.mPhotos).hasSize(10);
     }
 
 }

@@ -7,10 +7,18 @@ import java.util.List;
 /**
  * Created by joshskeen on 7/31/14.
  */
-public class PhotoResponse {
+public class Photos {
 
     @SerializedName("photo")
     public List<Photo> mPhotos;
+    @SerializedName("page")
+    public int mPage;
+    @SerializedName("pages")
+    public int mPages;
+    @SerializedName("perpage")
+    public int mPerPage;
+    @SerializedName("total")
+    public int mTotal;
 
     @Override
     public String toString() {
@@ -18,4 +26,6 @@ public class PhotoResponse {
                 "mPhotos=" + mPhotos +
                 '}';
     }
+
+
 }

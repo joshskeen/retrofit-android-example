@@ -6,8 +6,8 @@ import com.joshskeen.myflickrfetchr.event.HideDialogEvent;
 import com.joshskeen.myflickrfetchr.event.PhotosDownloadedEvent;
 import com.joshskeen.myflickrfetchr.event.ShowDialogEvent;
 import com.joshskeen.myflickrfetchr.model.PhotosManager;
+import com.joshskeen.myflickrfetchr.model.response.GetRecentPhotosResponse;
 import com.joshskeen.myflickrfetchr.model.response.Photo;
-import com.joshskeen.myflickrfetchr.model.response.PhotosResponse;
 
 import java.util.List;
 
@@ -34,12 +34,12 @@ public class FlickrFetchrServiceManager {
     public void getRecentPhotos() {
         EventBus.getDefault().post(new ShowDialogEvent());
         //this uses the async callback interface Retrofit provides! (if last argument is a Callback, the request is async)
-        mService.asyncGetRecentPhotos(10, 1, new Callback<PhotosResponse>() {
+        mService.asyncGetRecentPhotos(10, 1, new Callback<GetRecentPhotosResponse>() {
             @Override
-            public void success(PhotosResponse photosResponse, Response response) {
+            public void success(GetRecentPhotosResponse photosResponse, Response response) {
                 EventBus.getDefault().post(new HideDialogEvent());
                 //update singleton model object
-                List<Photo> photos = photosResponse.mPhotoResponse.mPhotos;
+                List<Photo> photos = photosResponse.mPhotos.mPhotos;
                 mPhotosManager.setPhotos(photos);
                 //notify the ui thread
                 EventBus.getDefault().post(new PhotosDownloadedEvent(photosResponse));

@@ -5,15 +5,18 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by joshskeen on 7/31/14.
  */
-public class PhotosResponse {
+public class GetRecentPhotosResponse {
 
     @SerializedName("photos")
-    public PhotoResponse mPhotoResponse;
+    public Photos mPhotos;
+
+    @SerializedName("stat")
+    public String mStatus;
 
     @Override
     public String toString() {
         return "PhotosResponse{" +
-                "mPhotoResponse=" + mPhotoResponse +
+                "mPhotos=" + mPhotos +
                 '}';
     }
 }
