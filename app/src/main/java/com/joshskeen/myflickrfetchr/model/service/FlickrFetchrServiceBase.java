@@ -9,14 +9,9 @@ import retrofit.client.OkClient;
 
 public abstract class FlickrFetchrServiceBase {
 
-    public static final String HEADER_ACCEPT = "Accept";
-    public static final String CONTENT_TYPE = "Content-Type";
-    public static final String APPLICATION_JSON = "application/json";
     public static final String SERVER_URL = "https://api.flickr.com";
     public static final String API_KEY = "52b082213eb8821fb5a02307573b4c7d";
-    //status codes that indicate there will be no response body to parse to error messages
     private static final String TAG = "FlickrFetchrService";
-
 
     protected FlickrFetchrServiceInterface getFlickrFetchrServiceInterface() {
         return getRestAdapter().create(FlickrFetchrServiceInterface.class);
