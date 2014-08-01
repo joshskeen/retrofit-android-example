@@ -15,9 +15,7 @@ import com.joshskeen.myflickrfetchr.model.service.PhotosDownloadedFailedEvent;
 
 import javax.inject.Inject;
 
-import de.greenrobot.event.EventBus;
-
-public class MainActivity extends BaseActivity {
+public class MainActivity extends EventedBaseActivity {
 
     @Inject
     FlickrFetchrServiceManager mServiceManager;
@@ -28,18 +26,6 @@ public class MainActivity extends BaseActivity {
     private String TAG = "MainActivity";
     private ListView mPhotosListView;
     private Button mMakeRequestButton;
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        EventBus.getDefault().unregister(this);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        EventBus.getDefault().register(this);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +49,7 @@ public class MainActivity extends BaseActivity {
     }
 
     public void onEvent(PhotosDownloadedFailedEvent event) {
-        Log.d(TAG, "photo download failed!");
+        Log.e(TAG, "photo download failed!", event.getError());
     }
 
 }
