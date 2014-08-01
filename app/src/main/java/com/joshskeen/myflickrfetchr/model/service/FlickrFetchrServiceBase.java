@@ -9,8 +9,8 @@ import retrofit.client.OkClient;
 
 public abstract class FlickrFetchrServiceBase {
 
-    public static final String SERVER_URL = "https://api.flickr.com";
-    public static final String API_KEY = "52b082213eb8821fb5a02307573b4c7d";
+    private static final String SERVER_URL = "https://api.flickr.com";
+    private static final String API_KEY = "52b082213eb8821fb5a02307573b4c7d";
     private static final String TAG = "FlickrFetchrService";
 
     protected FlickrFetchrServiceInterface getFlickrFetchrServiceInterface() {
