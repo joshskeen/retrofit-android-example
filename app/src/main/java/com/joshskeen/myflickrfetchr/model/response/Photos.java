@@ -22,10 +22,12 @@ public class Photos {
 
     @Override
     public String toString() {
-        return "PhotoResponse{" +
+        return "Photos{" +
                 "mPhotos=" + mPhotos +
+                ", mPage=" + mPage +
+                ", mPages=" + mPages +
+                ", mPerPage=" + mPerPage +
+                ", mTotal=" + mTotal +
                 '}';
     }
-
-
 }

@@ -15,8 +15,9 @@ public class GetRecentPhotosResponse {
 
     @Override
     public String toString() {
-        return "PhotosResponse{" +
+        return "GetRecentPhotosResponse{" +
                 "mPhotos=" + mPhotos +
+                ", mStatus='" + mStatus + '\'' +
                 '}';
     }
 }
