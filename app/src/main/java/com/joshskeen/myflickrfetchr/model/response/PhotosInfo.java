@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by joshskeen on 7/31/14.
  */
-public class Photos {
+public class PhotosInfo {
 
     @SerializedName("photo")
     public List<Photo> mPhotos;
@@ -22,8 +22,8 @@ public class Photos {
 
     @Override
     public String toString() {
-        return "Photos{" +
-                "mPhotos=" + mPhotos +
+        return "PhotosInfo{" +
+                "mPhotosInfo=" + mPhotos +
                 ", mPage=" + mPage +
                 ", mPages=" + mPages +
                 ", mPerPage=" + mPerPage +

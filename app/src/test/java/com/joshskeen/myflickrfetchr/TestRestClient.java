@@ -26,7 +26,7 @@ public class TestRestClient {
     @Test
     public void testGetRecentPhotosRequest() {
         GetRecentPhotosResponse recentPhotos = mFlickrFetchrService.getRecentPhotos(10, 1);
-        assertThat(recentPhotos.mPhotos.mPhotos).hasSize(10);
+        assertThat(recentPhotos.mPhotosInfo.mPhotos).hasSize(10);
     }
 
 }

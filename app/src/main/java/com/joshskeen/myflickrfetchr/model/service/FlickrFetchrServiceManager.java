@@ -25,7 +25,6 @@ public class FlickrFetchrServiceManager {
     private FlickrFetchrService mService;
     private PhotosManager mPhotosManager;
 
-
     public FlickrFetchrServiceManager(FlickrFetchrService service, PhotosManager photosManager) {
         mService = service;
         mPhotosManager = photosManager;
@@ -39,7 +38,7 @@ public class FlickrFetchrServiceManager {
             public void success(GetRecentPhotosResponse photosResponse, Response response) {
                 EventBus.getDefault().post(new HideDialogEvent());
                 //update singleton model object
-                List<Photo> photos = photosResponse.mPhotos.mPhotos;
+                List<Photo> photos = photosResponse.mPhotosInfo.mPhotos;
                 mPhotosManager.setPhotos(photos);
                 //notify the ui thread
                 EventBus.getDefault().post(new PhotosDownloadedEvent(photosResponse));
@@ -48,7 +47,7 @@ public class FlickrFetchrServiceManager {
             @Override
             public void failure(RetrofitError error) {
                 EventBus.getDefault().post(new HideDialogEvent());
-                Log.e(TAG, "something Bad happened!");
+                Log.e(TAG, "something Bad happened!", error);
                 EventBus.getDefault().post(new PhotosDownloadedFailedEvent(error));
             }
         });

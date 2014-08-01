@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 public class GetRecentPhotosResponse {
 
     @SerializedName("photos")
-    public Photos mPhotos;
+    public PhotosInfo mPhotosInfo;
 
     @SerializedName("stat")
     public String mStatus;
@@ -16,7 +16,7 @@ public class GetRecentPhotosResponse {
     @Override
     public String toString() {
         return "GetRecentPhotosResponse{" +
-                "mPhotos=" + mPhotos +
+                "mPhotosInfo=" + mPhotosInfo +
                 ", mStatus='" + mStatus + '\'' +
                 '}';
     }
