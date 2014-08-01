@@ -17,7 +17,7 @@ public abstract class FlickrFetchrServiceBase {
         return getRestAdapter().create(FlickrFetchrServiceInterface.class);
     }
 
-    public RestAdapter getRestAdapter() {
+    private RestAdapter getRestAdapter() {
         OkHttpClient client = new OkHttpClient();
         OkClient retrofitClient = new OkClient(client);
         RestAdapter restAdapter = new RestAdapter.Builder()
